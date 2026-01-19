@@ -53,12 +53,13 @@ export default defineConfig({
     config: (md) => {
       // Use D2 diagram plugin with optional configuration
       md.use(d2, {
+        onlyConvertMarkedImage: true,
         forceAppendix: false,
         layout: Layout.ELK,
         theme: Theme.NEUTRAL_DEFAULT,
         darkTheme: Theme.DARK_MUAVE,
-        padding: 100,
-        animatedInterval: 0,
+        pad: 100,
+        animateInterval: 0,
         timeout: 120,
         sketch: false,
         center: false,
@@ -67,7 +68,7 @@ export default defineConfig({
         fontItalic: null,
         fontBold: null,
         fontSemiBold: null,
-        fileType: FileType.SVG,
+        stdoutFormat: FileType.SVG,
         directory: "d2-diagrams",
       });
     },
@@ -100,6 +101,46 @@ x -> y
 ````
 
 See the `/example` directory within the repository for a full working example of how to use the plugin with VitePress.
+
+## Running the Example
+
+To run the example project locally and see the plugin in action, follow these steps:
+
+1. **Ensure D2 is installed** on your system (as described in the Requirements section)
+
+2. **Clone the repository** (if you haven't already):
+
+```bash
+git clone https://github.com/BadgerHobbs/vitepress-plugin-d2.git
+cd vitepress-plugin-d2
+```
+
+3. **Install dependencies and build the plugin**:
+
+```bash
+# Using npm
+npm install
+npm run build
+```
+
+4. **Navigate to the example directory and install dependencies**:
+
+```bash
+cd example
+# Using npm
+npm install
+```
+
+5. **Run the VitePress development server**:
+
+```bash
+# Using npm
+npm run docs:dev
+```
+
+6. **Open your browser** to `http://localhost:5173/` (or the next available port) to see the example site with D2 diagrams in action.
+
+The example project demonstrates various D2 diagram configurations and features, showing how to use the plugin with different layouts, themes, and settings.
 
 ## Further Reading
 
